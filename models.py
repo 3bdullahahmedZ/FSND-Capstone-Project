@@ -2,20 +2,12 @@ import os
 from flask_sqlalchemy import SQLAlchemy
 
 
-database_path = 'postgresql://postgres:12211221@localhost:5432/capstone'
+database_path = ''
 # if database_path.startswith("postgres://"):
 #     database_path = database_path.replace("postgres://", "postgresql://", 1)
 
 db = SQLAlchemy()
 
-
-# class Cast(db.Model):
-#     __tablename__ = 'Cast'
-#     id = db.Column(db.Integer, primary_key=True)
-#     actor_id = db.Column(db.Integer, db.ForeignKey(
-#         'actor.id', ondelete="CASCADE"), nullable=False)
-#     movie_id = db.Column(db.Integer, db.ForeignKey(
-#         'movie.id', ondelete="CASCADE"), nullable=False)
 
 cast = db.Table('cast',
                 db.Column('movie_id', db.Integer, db.ForeignKey('movie.id')),
